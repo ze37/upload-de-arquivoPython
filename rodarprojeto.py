@@ -33,4 +33,19 @@ maior_idade = max([objeto.idade for objeto in lista_entrevistados])
 media_adultos = statistics.median_high([
     objeto.idade for objeto in lista_entrevistados if objeto.idade >= 18])
 
+# Mostrar a quantidade de nascimentos por decadas
+# O que temos: [1970, 1981, 1998, 2002, 1990, 1970 ]
+# 1o passo: converter anos em decadas
+# 2o passo: criar uma lista nova com as decadas sem repetir
+# 3o passo: contar as decadas na lista original usando a lista nova
+# O que queremos:{1980: 10, 1990: 15, 2000: 5}
+
+# 1985 / 10 = 198,5 int -> 198 * 10 = 1980
+
+lista_decadas = [int(objeto.ano_informado / 10) *
+                 10 for objeto in lista_entrevistados]
+set_decadas = set(lista_decadas)
+
+
 print(menor_idade, maior_idade, media_adultos)
+print(lista_decadas, set_decadas)
