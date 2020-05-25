@@ -1,8 +1,31 @@
 import meuprojeto
 import statistics
+import json
 
 pode_parar = False
 lista_entrevistados = []
+
+# Ler o arquivo  json
+
+
+def pega_dados(obj):
+    instancia = meuprojeto.Entrevista(
+        nome=obj["nome"],
+        idade=obj["idade"],
+        ano=obj["ano"]
+    )
+    return instancia
+
+
+try:
+    arquivo_json = open("dados.json", "r")
+    dados_json = json.load(arquivo_json)
+    entrevistas = dados_json['Entrevistas']
+    lista_entrevistados = [pega_dados(entrevista)for entrevista in entrevistas]
+except Exception as erro:
+    print("Ocorreu um erro ao carregar o arquivo.")
+    print(f'O erro é: {erro}')
+print(lista_entrevistados)
 
 while pode_parar == False:
     entrevistado = meuprojeto.Entrevista()

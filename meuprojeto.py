@@ -2,9 +2,12 @@ import datetime
 
 
 class Entrevista():
-    nome = ""
-    ano_informado = 0
-    idade = 0
+
+    def __init__(self, nome="", ano=0, idade=0):
+        super(Entrevista, self).__init__()
+        self.nome = nome
+        self.idade = idade
+        self.ano_informado = ano
 
     def pergunta_nome(self):
         nome_ok = False
@@ -41,4 +44,4 @@ class Entrevista():
         # return (self.ano_informado, self.idade)  # tupla
 
     def __repr__(self):
-        return "{} {}".format(self.nome, self.idade)
+        return "input()={} input()=int({})".format(self.nome, self.idade)
