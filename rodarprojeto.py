@@ -58,3 +58,4 @@ print('\nNascimento por decadas')
 print('-------------------------------')
 for decada, quantidade in qtd_nascimento.items():
     print(f'{decada}: {quantidade} nascimentos')
+print('\n')
