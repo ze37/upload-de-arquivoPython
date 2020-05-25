@@ -33,6 +33,4 @@ maior_idade = max([objeto.idade for objeto in lista_entrevistados])
 media_adultos = statistics.median_high([
     objeto.idade for objeto in lista_entrevistados if objeto.idade >= 18])
 
-print(menor_idade)
-print(maior_idade)
-print(media_adultos)
+print(menor_idade, maior_idade, media_adultos)
