@@ -48,7 +48,13 @@ set_decadas = set(lista_decadas)
 qtd_nascimento = {decada: lista_decadas.count(
     decada) for decada in set_decadas}
 
-
-print(menor_idade, maior_idade, media_adultos)
-print(lista_decadas, set_decadas)
-print(qtd_nascimento)
+print("\nResultados:")
+print('-------------------------------')
+print(f'Quantidade de Entrevistas: {len(lista_entrevistados )}')
+print(f'Menor idade informada: {(menor_idade)}')
+print(f'Maior idade informada: {(maior_idade)}')
+print(f'Media de idade dos adultos informados: {(media_adultos)}')
+print('\nNascimento por decadas')
+print('-------------------------------')
+for decada, quantidade in qtd_nascimento.items():
+    print(f'{decada}: {quantidade} nascimentos')
