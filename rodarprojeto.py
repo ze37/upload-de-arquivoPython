@@ -45,7 +45,10 @@ media_adultos = statistics.median_high([
 lista_decadas = [int(objeto.ano_informado / 10) *
                  10 for objeto in lista_entrevistados]
 set_decadas = set(lista_decadas)
+qtd_nascimento = {decada: lista_decadas.count(
+    decada) for decada in set_decadas}
 
 
 print(menor_idade, maior_idade, media_adultos)
 print(lista_decadas, set_decadas)
+print(qtd_nascimento)
