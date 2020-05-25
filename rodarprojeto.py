@@ -1,4 +1,5 @@
 import meuprojeto
+import statistics
 
 pode_parar = False
 lista_entrevistados = []
@@ -29,5 +30,9 @@ while pode_parar == False:
 menor_idade = min([objeto.idade for objeto in lista_entrevistados])
 maior_idade = max([objeto.idade for objeto in lista_entrevistados])
 
+media_adultos = statistics.median_high([
+    objeto.idade for objeto in lista_entrevistados if objeto.idade >= 18])
+
 print(menor_idade)
 print(maior_idade)
+print(media_adultos)
