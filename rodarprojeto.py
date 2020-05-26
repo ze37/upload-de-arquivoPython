@@ -25,7 +25,7 @@ try:
 except Exception as erro:
     print("Ocorreu um erro ao carregar o arquivo.")
     print(f'O erro é: {erro}')
-print(lista_entrevistados)
+
 
 while pode_parar == False:
     entrevistado = meuprojeto.Entrevista()
@@ -44,12 +44,27 @@ while pode_parar == False:
             print(f'A menssagen foi {erro}')
         else:
             lista_entrevistados.append(entrevistado)
+lista_salvar = [
+    dict(nome=obj.nome, ano=obj.ano_informado, idade=obj.idade)
+    for obj in lista_entrevistados
 
+]
+dict_salvar = {'Entrevistas': lista_salvar}
+dict_salvar = json.dumps(dict_salvar, indent=4, sort_keys=False)
+try:
+    arquivo_json = open("dados.json", "w")
+    arquivo_json.write(dict_salvar)
+    arquivo_json.close()
+except Exception as erro:
+    print("Ocorreu um erro ao carregar o arquivo.")
+    print(f'O erro é: {erro}')
 
-# Mostra a menor idade calculada
-# Mostra a maior idade calculada
-# Mostra a media de  idades dos adultos
-# mostra a quantidade de nascimento por decadas
+    # Gravar o arquivo JSON
+
+    # Mostra a menor idade calculada
+    # Mostra a maior idade calculada
+    # Mostra a media de  idades dos adultos
+    # mostra a quantidade de nascimento por decadas
 menor_idade = min([objeto.idade for objeto in lista_entrevistados])
 maior_idade = max([objeto.idade for objeto in lista_entrevistados])
 
