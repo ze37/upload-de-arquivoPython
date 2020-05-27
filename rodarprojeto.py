@@ -10,6 +10,7 @@ Este codigo é dividido em 4 partes
 import meuprojeto
 import statistics
 import json
+import sh
 
 
 def carrega_dados():
@@ -145,7 +146,18 @@ def calcular_dados():
     print('-------------------------------')
     for decada, quantidade in qtd_nascimento.items():
         print(f'{decada}: {quantidade} nascimentos')
-    print('\n')
+    print('\n\n')
+    resposta_ok = False
+    while resposta_ok == False:
+        try:
+            resposta = input('Deseja mostrar os dados num arquivo ?(s/n')
+            resposta = resposta[0].lower()
+            if resposta == 's' or resposta == 'n':
+                resposta_ok = True
+        except:
+            continue
+    if resposta == 's':
+        sh.gedit("dados.json")
 
 
 carrega_dados()
